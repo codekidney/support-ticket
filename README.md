@@ -1,2 +1,0 @@
-# support-ticket
-Support ticket
