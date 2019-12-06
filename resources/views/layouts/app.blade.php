@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -31,6 +32,18 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                </div>
+                
+
+                <div class="navbar-header pull-right">
+                    <a class="btn navbar-btn pull-right" style="margin-right: 5px;" href="{{ url('/lang',app()->getLocale() ) }}" data-toggle="dropdown">{{ app()->getLocale() }}<b class="caret"></b></a>
+                    <ul class="dropdown-menu realign">
+                        <li><a href="{{ url('/lang/pl') }}">PL</a></li>
+                        <li><a href="{{ url('/lang/en') }}">EN</a></li>
+                    </ul>
+                    <button class="navbar-toggle" type="button" data-target="#MainMenu" data-toggle="collapse">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                    </button>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

@@ -18,12 +18,16 @@ Route::get('language/{locale}', function ($locale) {
 });
 Auth::routes();
 Route::get('new-ticket', 'TicketController@create');
+Route::get('/lang/{key}', function ($key) {
+    session()->put('locale', $key);
+    return redirect()->back();
+});
 Route::post('new-ticket', 'TicketController@store');
-Route::get('my_tickets', 'TicketController@userTickets');
+Route::get('my_tickets', 'TicketController@userTickets')->name('user_home');
 Route::get('tickets/{ticket_id}', 'TicketController@show');
 Route::post('comment', 'CommentsController@postComment');
 Route::prefix('admin')->group(function(){
-    Route::get('tickets','TicketController@index');
+    Route::get('tickets','TicketController@index')->name('admin_home');
     Route::get('close_ticket/{ticket_id}','TicketsController@close');
 });
 Auth::routes();
