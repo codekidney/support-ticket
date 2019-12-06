@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('language/{locale}', function ($locale) {
+    App::setLocale($locale);
+    return redirect()->route('home');
+});
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('new-ticket', 'TicketController@create');
 Route::post('new-ticket', 'TicketController@store');
 Route::get('my_tickets', 'TicketController@userTickets');
@@ -23,3 +26,6 @@ Route::prefix('admin')->group(function(){
     Route::get('tickets','TicketController@index');
     Route::get('close_ticket/{ticket_id}','TicketsController@close');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

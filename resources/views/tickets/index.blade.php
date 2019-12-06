@@ -1,27 +1,27 @@
 @extends('layouts.app')
 
-@section('title', 'All Tickets')
+@section('title', __('tickets.all_tickets'))
 
 @section('content')
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <i class="fa fa-ticket"> Tickets</i>
+                <i class="fa fa-ticket"> {{ __('tickets.tickets') }}</i>
             </div>
 
             <div class="panel-body">
                 @if ($tickets->isEmpty())
-                <p>There are currently no tickets.</p>
+                <p>{{ __('tickets.tickets') }}</p>
                 @else
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Category</th>
-                            <th>Title</th>
-                            <th>Status</th>
-                            <th>Last Updated</th>
-                            <th style="text-align:center" colspan="2">Actions</th>
+                            <th>{{ __('tickets.category') }}</th>
+                            <th>{{ __('tickets.title') }}</th>
+                            <th>{{ __('tickets.status') }}</th>
+                            <th>{{ __('tickets.last_updated') }}</th>
+                            <th style="text-align:center" colspan="2">{{ __('tickets.actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,11 +45,11 @@
                             <td>{{ $ticket->updated_at }}</td>
                             <td>
                                 @if($ticket->status === 'Open')
-                                <a href="{{ url('tickets/' . $ticket->ticket_id) }}" class="btn btn-primary">Comment</a>
+                                <a href="{{ url('tickets/' . $ticket->ticket_id) }}" class="btn btn-primary">Reply</a>
 
                                 <form action="{{ url('admin/close_ticket/' . $ticket->ticket_id) }}" method="POST">
                                     {!! csrf_field() !!}
-                                    <button type="submit" class="btn btn-danger">Close</button>
+                                    <button type="submit" class="btn btn-danger">{{ __('tickets.close_ticket') }}</button>
                                 </form>
                                 @endif
                             </td>

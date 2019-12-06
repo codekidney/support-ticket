@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'My Tickets')
+@section('title', __('tickets.my_tickets'))
 
 @section('content')
 
@@ -8,20 +8,20 @@
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <i class="fa fa-ticket"> My Tickets</i>
+                <i class="fa fa-ticket"> {{ __('tickets.my_tickets') }}</i>
             </div>
 
             <div class="panel-body">
                 @if($tickets->isEmpty())
-                <p>You have not created any tickets.</p>
+                <p>{{ __('tickets.no_tickets') }}</p>
                 @else
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Category</th>
-                            <th>Title</th>
-                            <th>Status</th>
-                            <th>Last Updated</th>
+                            <th>{{ __('tickets.category') }}</th>
+                            <th>{{ __('tickets.title') }}</th>
+                            <th>{{ __('tickets.status') }}</th>
+                            <th>{{ __('tickets.last_updated') }}</th>
                         </tr>
                     </thead>
                     <tbody>
