@@ -12,79 +12,71 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-                
-
-                <div class="navbar-header pull-right">
-                    <a class="btn navbar-btn pull-right" style="margin-right: 5px;" href="{{ url('/lang',app()->getLocale() ) }}" data-toggle="dropdown">{{ app()->getLocale() }}<b class="caret"></b></a>
-                    <ul class="dropdown-menu realign">
-                        <li><a href="{{ url('/lang/pl') }}">PL</a></li>
-                        <li><a href="{{ url('/lang/en') }}">EN</a></li>
-                    </ul>
-                    <button class="navbar-toggle" type="button" data-target="#MainMenu" data-toggle="collapse">
-                        <span class="glyphicon glyphicon-th-list"></span>
-                    </button>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">{{ __('users.login') }}</a></li>
-                            <li><a href="{{ route('register') }}">{{ __('users.create_account') }}</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+            <div id="navbarNavDropdown" class="navbar-collapse collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ url('/lang',app()->getLocale() ) }}" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @if (app()->getLocale() === 'pl')
+                                <span class="flag-icon flag-icon-pl"></span>
+                            @else
+                                <span class="flag-icon flag-icon-gb"></span>
+                            @endif
+                            <span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <a class="dropdown-item" href="{{ url('/lang/pl') }}">PL</a>
+                            <a class="dropdown-item" href="{{ url('/lang/en') }}">EN</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    
+                    <!-- Authentication Links -->
+                    @guest
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('users.login') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">{{ __('users.create_account') }}</a></li>
+                    @else
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    {{ __('users.logout') }}
                                 </a>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            {{ __('users.logout') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
+                                <div class="dropdown-item">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                    @endguest
+                </ul>
+            </div>
+            
+        </nav>        
+        
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 my-4">
+                        @yield('content')
+                    </div>
                 </div>
             </div>
-        </nav>
-
-        @yield('content')
+        </main>
     </div>
 
     <!-- Scripts -->

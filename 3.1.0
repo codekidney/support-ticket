@@ -1,0 +1,10 @@
+
+> fibers@4.0.2 install C:\Kamil\support-ticket\node_modules\fibers
+> node build.js || nodejs build.js
+
+`win32-x64-64` exists; testing
+Binary is fine; exiting
++ fibers@4.0.2
+added 2 packages from 3 contributors and audited 17193 packages in 7.269s
+found 0 vulnerabilities
+

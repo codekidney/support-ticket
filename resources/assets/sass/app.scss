@@ -5,5 +5,19 @@
 // Variables
 @import "variables";
 
+// FontAwesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+// CSS Flag
+$include: ('pl', 'gb');
+@import "~flag-icon-css/sass/flag-icon.scss";
+
 // Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~bootstrap/scss/bootstrap";
+
+.navbar-header {
+    position: relative;
+}

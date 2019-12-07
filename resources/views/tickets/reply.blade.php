@@ -1,7 +1,7 @@
-<div class="panel panel-default">
-    <div class="panel-heading">{{ __('tickets.add_reply') }}</div>
+<div class="card card-default">
+    <div class="card-header">{{ __('tickets.add_reply') }}</div>
  
-        <div class="panel-body">
+        <div class="card-body">
             <div class="comment-form">
  
                 <form action="{{ url('comment') }}" method="POST" class="form">

@@ -6,12 +6,13 @@
 
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <i class="fa fa-ticket"> {{ __('tickets.my_tickets') }}</i>
+        <div class="card card-default">
+            <div class="card-header">
+                <i class="fas fa-envelope-open-text"></i> {{ __('tickets.my_tickets') }}
+                <a href="{{ url('new-ticket') }}" class="btn btn-primary float-right">{{ __('tickets.open_new_ticket') }}</a>
             </div>
 
-            <div class="panel-body">
+            <div class="card-body">
                 @if($tickets->isEmpty())
                 <p>{{ __('tickets.no_tickets') }}</p>
                 @else
@@ -37,9 +38,9 @@
                             </td>
                             <td>
                                 @if($ticket->status == "Open")
-                                <span class="label label-success">{{ $ticket->status }}</span>
+                                <span class="badge badge-success">{{ $ticket->status }}</span>
                                 @else
-                                <span class="label label-danger">{{ $ticket->status }}</span>
+                                <span class="badge badge-danger">{{ $ticket->status }}</span>
                                 @endif
                             </td>
                             <td>
@@ -52,6 +53,9 @@
 
                 {{ $tickets->render() }}
                 @endif
+            </div>
+            <div class="card-footer">
+                
             </div>
         </div>
     </div>

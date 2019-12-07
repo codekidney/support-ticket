@@ -5,12 +5,12 @@
 @section('content')
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <i class="fa fa-ticket"> {{ __('tickets.tickets') }}</i>
+        <div class="card card-default">
+            <div class="card-header">
+                <i class="fas fa-envelope-open-o"></i> {{ __('tickets.tickets') }}
             </div>
 
-            <div class="panel-body">
+            <div class="card-body">
                 @if ($tickets->isEmpty())
                 <p>{{ __('tickets.tickets') }}</p>
                 @else
@@ -37,9 +37,9 @@
                             </td>
                             <td>
                                 @if ($ticket->status === 'Open')
-                                <span class="label label-success">{{ $ticket->status }}</span>
+                                <span class="badge badge-success">{{ $ticket->status }}</span>
                                 @else
-                                <span class="label label-danger">{{ $ticket->status }}</span>
+                                <span class="badge badge-danger">{{ $ticket->status }}</span>
                                 @endif
                             </td>
                             <td>{{ $ticket->updated_at }}</td>

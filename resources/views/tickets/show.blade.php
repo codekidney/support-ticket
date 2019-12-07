@@ -6,12 +6,12 @@
  
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
-        <div class="panel panel-default">
-            <div class="panel-heading">
+        <div class="card card-default">
+            <div class="card-header">
                 #{{ $ticket->ticket_id }} - {{ $ticket->title }}
             </div>
 
-            <div class="panel-body">
+            <div class="card-body">
                 @if (session('status'))
                     <div class="alert alert-success">
                         {{ session('status') }}
@@ -23,9 +23,9 @@
                     <p>{{ __('tickets.category') }}: {{ $ticket->category->name }}</p>
                     <p>
                         @if ($ticket->status === 'Open')
-                            {{ __('tickets.status') }}: <span class="label label-success">{{ $ticket->status }}</span>
+                            {{ __('tickets.status') }}: <span class="badge badge-success">{{ $ticket->status }}</span>
                         @else
-                            {{ __('tickets.status') }}: <span class="label label-danger">{{ $ticket->status }}</span>
+                            {{ __('tickets.status') }}: <span class="badge badge-danger">{{ $ticket->status }}</span>
                         @endif
                     </p>
                     <p>Created on: {{ $ticket->created_at->diffForHumans() }}</p>

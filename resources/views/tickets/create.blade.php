@@ -6,10 +6,10 @@
 
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
-        <div class="panel panel-default">
-            <div class="panel-heading">{{ __('tickets.open_new_ticket') }}</div>
+        <div class="card card-default">
+            <div class="card-header">{{ __('tickets.open_new_ticket') }}</div>
 
-            <div class="panel-body">
+            <div class="card-body">
 
 
                 @if (session('status'))
@@ -90,7 +90,7 @@
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
                             <button type="submit" class="btn btn-primary">
-                                <i class="fa fa-btn fa-ticket"></i> {{ __('tickets.send') }}
+                                <i class="fas fa-envelope-o"></i> {{ __('tickets.send') }}
                             </button>
                         </div>
                     </div>
