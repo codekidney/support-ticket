@@ -9,7 +9,7 @@
                 <div class="card-body">
                     @if(Auth::user()->is_admin)
                         <p>
-                            <a class="btn btn-primary" href="{{ url('admin/tickets') }}">{{ __('tickets.tickets') }}tickets</a>
+                            <a class="btn btn-primary" href="{{ url('admin/tickets') }}">{{ __('tickets.tickets') }}</a>
                         </p>
                     @else
                         <p>

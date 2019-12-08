@@ -1,0 +1,44 @@
+$prioritySize: 1em;
+.priority {
+    height: $prioritySize;        
+    position: relative;
+    display: inline-block;
+    width: 1.5*$prioritySize;
+    &:before, &:after {
+        border-style: solid;
+        height: 0;
+        width: 0;
+        display: block;
+        content: "";
+        position: absolute;        
+        top: 0;
+    }
+    &:after {
+        right: -1*$prioritySize/2;
+        border-width: $prioritySize/2 $prioritySize/2 $prioritySize/2 0;        
+    }
+    &-low {
+        background: $info;
+        &:before, &:after {
+            border-color: $info transparent;
+        }
+    }
+    &-medium {
+        background: $warning;
+        &:before, &:after {
+            border-color: $warning transparent;
+        }
+    }
+    &-high {
+        background: $danger;
+        &:before, &:after {
+            border-color: $danger transparent;
+        }
+    }
+    &-default {
+        background: $gray-600;
+        &:before, &:after {
+            border-color: $gray-600 transparent;
+        }
+    }
+}

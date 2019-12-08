@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-12">
         <div class="card card-default">
             <div class="card-header">
                 <i class="fas fa-envelope-open-o"></i> {{ __('tickets.tickets') }}
@@ -17,22 +17,27 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>{{ __('tickets.category') }}</th>
-                            <th>{{ __('tickets.title') }}</th>
-                            <th>{{ __('tickets.status') }}</th>
-                            <th>{{ __('tickets.last_updated') }}</th>
-                            <th style="text-align:center" colspan="2">{{ __('tickets.actions') }}</th>
+                            <th>@sortablelink('priority', __('tickets.priority'))</th>
+                            <th>@sortablelink('category_id', __('tickets.category'))</th>
+                            <th>@sortablelink('title', __('tickets.title'))</th>
+                            <th>@sortablelink('status', __('tickets.status'))</th>
+                            <th>@sortablelink('status', __('tickets.last_updated'))</th>
+                            <th>{{ __('tickets.actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($tickets as $ticket)
                         <tr>
                             <td>
-                                {{ $ticket->category->name }}
+                                <div class="priority priority-{{ $ticket->priority }}"></div>
+                            </td>
+                            <td>
+                                <span class="badge badge-info">{{ $ticket->category->name }}</span>
                             </td>
                             <td>
                                 <a href="{{ url('tickets/'. $ticket->ticket_id) }}">
                                     #{{ $ticket->ticket_id }} - {{ $ticket->title }}
+                                    <span class="badge badge-info badge-pill">{{ count($ticket->comments) }}</span>
                                 </a>
                             </td>
                             <td>
@@ -42,14 +47,24 @@
                                 <span class="badge badge-danger">{{ $ticket->status }}</span>
                                 @endif
                             </td>
-                            <td>{{ $ticket->updated_at }}</td>
+                            <td>
+                                @if ( count($ticket->comments) > 0)
+                                    <small class="d-block">
+                                    {{ $ticket->comments->last()->updated_at->diffForHumans() }}
+                                    </small>
+                                @else
+                                    <small class="d-block">
+                                    {{ $ticket->updated_at->diffForHumans() }}
+                                    </small>
+                                @endif
+                            </td>
                             <td>
                                 @if($ticket->status === 'Open')
-                                <a href="{{ url('tickets/' . $ticket->ticket_id) }}" class="btn btn-primary">Reply</a>
+                                <a href="{{ url('tickets/' . $ticket->ticket_id) }}" class="btn btn-primary btn-sm mb-2">{{ __('tickets.reply') }}</a>
 
                                 <form action="{{ url('admin/close_ticket/' . $ticket->ticket_id) }}" method="POST">
                                     {!! csrf_field() !!}
-                                    <button type="submit" class="btn btn-danger">{{ __('tickets.close_ticket') }}</button>
+                                    <button type="submit" class="btn btn-danger btn-sm">{{ __('tickets.close_ticket') }}</button>
                                 </form>
                                 @endif
                             </td>
@@ -57,6 +72,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {!! $tickets->appends(\Request::except('page'))->render() !!}
 
                 {{ $tickets->render() }}
                 @endif

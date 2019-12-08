@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-12">
         <div class="card card-default">
             <div class="card-header">
                 <i class="fas fa-envelope-open-text"></i> {{ __('tickets.my_tickets') }}
@@ -19,6 +19,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>@sortablelink('priority', __('tickets.priority'))</th>
                             <th>@sortablelink('category_id', __('tickets.category'))</th>
                             <th>@sortablelink('title', __('tickets.title'))</th>
                             <th>@sortablelink('status', __('tickets.status'))</th>
@@ -28,6 +29,9 @@
                     <tbody>
                         @foreach($tickets as $ticket)
                         <tr>
+                            <td>
+                                <div class="priority priority-{{ $ticket->priority }}"></div>
+                            </td>
                             <td>
                                 {{ $ticket->category->name }}
                             </td>

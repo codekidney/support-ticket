@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-12">
         <div class="card card-default">
             <div class="card-header">{{ __('tickets.open_new_ticket') }}</div>
 

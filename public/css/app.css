@@ -302,6 +302,65 @@ legend {
   color: inherit;
 }
 
+.priority {
+  height: 1em;
+  position: relative;
+  display: inline-block;
+  width: 1.5em;
+}
+
+.priority:before,
+.priority:after {
+  border-style: solid;
+  height: 0;
+  width: 0;
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+}
+
+.priority:after {
+  right: -0.5em;
+  border-width: 0.5em 0.5em 0.5em 0;
+}
+
+.priority-low {
+  background: #6CC3D5;
+}
+
+.priority-low:before,
+.priority-low:after {
+  border-color: #6CC3D5 transparent;
+}
+
+.priority-medium {
+  background: #FFCE67;
+}
+
+.priority-medium:before,
+.priority-medium:after {
+  border-color: #FFCE67 transparent;
+}
+
+.priority-high {
+  background: #FF7851;
+}
+
+.priority-high:before,
+.priority-high:after {
+  border-color: #FF7851 transparent;
+}
+
+.priority-default {
+  background: #888;
+}
+
+.priority-default:before,
+.priority-default:after {
+  border-color: #888 transparent;
+}
+
 /*!
  * Font Awesome Free 5.11.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)

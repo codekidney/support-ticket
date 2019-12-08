@@ -14,7 +14,7 @@ class Ticket extends Model
     ];
     
     public $sortable = [
-        'title', 'status', 'category_id'
+        'title', 'status', 'category_id', 'priority'
     ];
     
     public function category(){
