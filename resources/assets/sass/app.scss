@@ -1,9 +1,12 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+/*@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");*/
 
 // Variables
 @import "variables";
+
+// Bootswatch
+@import "bootswatch";
 
 // FontAwesome
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
@@ -16,8 +19,33 @@ $include: ('pl', 'gb');
 @import "~flag-icon-css/sass/flag-icon.scss";
 
 // Bootstrap
+$theme-colors: ( 
+    "primary": #06548C, 
+    "secondary": #3373A1
+);
 @import "~bootstrap/scss/bootstrap";
 
 .navbar-header {
     position: relative;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    
+    input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
 }

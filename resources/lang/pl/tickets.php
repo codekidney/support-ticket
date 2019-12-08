@@ -9,7 +9,7 @@ return [
     'select_category'  => 'Wybierz kategorie',
     'title'            => 'Tytuł',
     'status'           => 'Status',
-    'last_updated'     => 'Ostatnia zmiana',
+    'last_updated'     => 'Ostatnia odpowiedź',
     'actions'          => 'Wykonaj',
     'close_ticket'     => 'Zakończ',
     'reply'            => 'Odpowiedź',   
@@ -21,4 +21,6 @@ return [
     'select_priority'  => 'Wybierz priorytet',
     'message'          => 'Wiadomość',
     'send'             => 'Wyślij',    
+    'created'          => 'Utworzono',  
+    'files'            => 'Pliki',  
 ];

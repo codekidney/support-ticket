@@ -7,6 +7,8 @@
 
 require('./bootstrap');
 
+require('./jquery.fileupload');
+
 window.Vue = require('vue');
 
 /**

@@ -26,7 +26,7 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $tickets = Ticket::paginate(10);
+        $tickets = Ticket::sortable()->paginate(10);
         return view('tickets.index', compact('tickets'));
     }
 
@@ -80,7 +80,7 @@ class TicketController extends Controller
      */
     public function userTickets()
     {
-        $tickets = Ticket::where('user_id', Auth::user()->id)->paginate(10);
+        $tickets = Ticket::sortable(['status'=>'desc'])->where('user_id', Auth::user()->id)->paginate(10);
         return view('tickets.user_tickets', compact('tickets'));
     }
 

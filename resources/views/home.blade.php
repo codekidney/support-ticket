@@ -5,16 +5,18 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="card card-default">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">{{ __('home.logged_in') }}</div>
                 <div class="card-body">
-                    <p>{{ __('home.logged_in') }} {{ App::getLocale() }}</p>
                     @if(Auth::user()->is_admin)
                         <p>
-                            See all <a href="{{ url('admin/tickets') }}">tickets</a>
+                            <a class="btn btn-primary" href="{{ url('admin/tickets') }}">{{ __('tickets.tickets') }}tickets</a>
                         </p>
                     @else
                         <p>
-                            See all your <a href="{{ url('my_tickets') }}">tickets</a> or <a href="{{ url('new-ticket') }}">{{ __('tickets.open_new_ticket') }}</a>
+                            <a class="btn btn-secondary" href="{{ url('my_tickets') }}">{{ __('tickets.my_tickets') }}</a>
+                        </p>
+                        <p>
+                            <a class="btn btn-primary" href="{{ url('new-ticket') }}">{{ __('tickets.open_new_ticket') }}</a>
                         </p>
                     @endif
                 </div>

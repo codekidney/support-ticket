@@ -9,7 +9,7 @@
         <div class="card card-default">
             <div class="card-header">
                 <i class="fas fa-envelope-open-text"></i> {{ __('tickets.my_tickets') }}
-                <a href="{{ url('new-ticket') }}" class="btn btn-primary float-right">{{ __('tickets.open_new_ticket') }}</a>
+                <a href="{{ url('new-ticket') }}" class="btn btn-primary btn-sm float-right">{{ __('tickets.open_new_ticket') }}</a>
             </div>
 
             <div class="card-body">
@@ -19,9 +19,9 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>{{ __('tickets.category') }}</th>
-                            <th>{{ __('tickets.title') }}</th>
-                            <th>{{ __('tickets.status') }}</th>
+                            <th>@sortablelink('category_id', __('tickets.category'))</th>
+                            <th>@sortablelink('title', __('tickets.title'))</th>
+                            <th>@sortablelink('status', __('tickets.status'))</th>
                             <th>{{ __('tickets.last_updated') }}</th>
                         </tr>
                     </thead>
@@ -34,6 +34,7 @@
                             <td>
                                 <a href="{{ url('tickets/' . $ticket->ticket_id) }}">
                                     #{{ $ticket->ticket_id }} - {{ $ticket->title }}
+                                    <span class="badge badge-info badge-pill">{{ count($ticket->comments) }}</span>
                                 </a>
                             </td>
                             <td>
@@ -44,12 +45,21 @@
                                 @endif
                             </td>
                             <td>
-                                {{ $ticket->updated_at }}
+                                @if ( count($ticket->comments) > 0)
+                                    <small class="d-block">
+                                    {{ $ticket->comments->last()->updated_at->diffForHumans() }}
+                                    </small>
+                                @else
+                                    <small class="d-block">
+                                    {{ $ticket->updated_at->diffForHumans() }}
+                                    </small>
+                                @endif
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+                {!! $tickets->appends(\Request::except('page'))->render() !!}
 
                 {{ $tickets->render() }}
                 @endif

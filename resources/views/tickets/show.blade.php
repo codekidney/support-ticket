@@ -9,6 +9,7 @@
         <div class="card card-default">
             <div class="card-header">
                 #{{ $ticket->ticket_id }} - {{ $ticket->title }}
+                <a href="#reply" class="btn btn-primary float-right"> {{ __('tickets.add_reply') }}</a>
             </div>
 
             <div class="card-body">
@@ -28,15 +29,17 @@
                             {{ __('tickets.status') }}: <span class="badge badge-danger">{{ $ticket->status }}</span>
                         @endif
                     </p>
-                    <p>Created on: {{ $ticket->created_at->diffForHumans() }}</p>
+                    <p>{{ __('tickets.created') }}: {{ $ticket->created_at->diffForHumans() }}</p>
                 </div>
 
             </div>
         </div>
 
+        <a name="comments"></a>
         <hr>
         @include('tickets.comments')
 
+        <a name="reply"></a>
         <hr>
         @include('tickets.reply')
     </div>

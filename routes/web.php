@@ -28,8 +28,9 @@ Route::get('tickets/{ticket_id}', 'TicketController@show');
 Route::post('comment', 'CommentsController@postComment');
 Route::prefix('admin')->group(function(){
     Route::get('tickets','TicketController@index')->name('admin_home');
-    Route::get('close_ticket/{ticket_id}','TicketsController@close');
+    Route::post('close_ticket/{ticket_id}','TicketController@close');
 });
+Route::post('ajaxFileUpload', 'FileController@ajaxFileUploadPost')->name('ajaxFileUpload');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

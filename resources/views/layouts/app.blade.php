@@ -15,8 +15,8 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="{{ url('/') }}"><i class="fab fa-line"></i> {{ config('app.name', 'Laravel') }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,8 +38,18 @@
                         </div>
                     </li>
                 </ul>
+                
+                @auth 
+                <ul class="navbar-nav mr-auto">
+                    @if (Auth::user()->is_admin !== 1)
+                    <li class="nav-item"><a class="nav-link" href="{{ url('my_tickets') }}">{{ __('tickets.my_tickets') }}</a></li>
+                    @else
+                    <li class="nav-item"><a class="nav-link" href="{{ url('admin','tickets') }}">{{ __('tickets.tickets') }}</a></li>
+                    @endif
+                </ul>
+                @endauth
+                
                 <ul class="navbar-nav">
-                    
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('users.login') }}</a></li>
@@ -47,13 +57,13 @@
                     @else
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <i class="fas fa-user-circle"></i> {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                    {{ __('users.logout') }}
+                                    <i class="fas fa-power-off"></i> {{ __('users.logout') }}
                                 </a>
                                 <div class="dropdown-item">
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
