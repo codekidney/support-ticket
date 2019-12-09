@@ -75,7 +75,7 @@ class TicketController extends Controller
         
         $mailer->sendTicketInformation(Auth::user(), $ticket);
         
-        return redirect()->back()->with('status', "A ticket with ID: #$ticket->ticket_id has been added.");
+        return redirect()->back()->with( 'status', __('tickets.ticket_submited', ['name' => $ticket->ticket_id]) );
     }
 
     /**
@@ -115,7 +115,7 @@ class TicketController extends Controller
         
         $ticketOwner = $ticket->user;
         $mailer->sendTicketStatusNotification($ticketOwner, $ticket);
-        return redirect()->back()->with('status', 'The ticket has been closed');
+        return redirect()->back()->with('status', __('tickets.ticket_closed') );
     }
 
 }

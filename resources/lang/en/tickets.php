@@ -24,5 +24,6 @@ return [
     'created'          => 'Created',
     'files'            => 'Files',
     'comment_submited' => 'Your comment has be submited',
-    'ticket_submited'  => 'A ticket with ID #:TICKET_ID has been added.', 
+    'ticket_submited'  => 'A ticket with ID #:TICKET_ID has been added.',
+    'ticket_closed'    => 'The ticket has been closed',   
 ];
