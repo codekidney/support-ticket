@@ -41,10 +41,10 @@
                 
                 @auth 
                 <ul class="navbar-nav mr-auto">
-                    @if (Auth::user()->is_admin !== 1)
-                    <li class="nav-item"><a class="nav-link" href="{{ url('my_tickets') }}">{{ __('tickets.my_tickets') }}</a></li>
-                    @else
+                    @if (Auth::user()->is_admin)
                     <li class="nav-item"><a class="nav-link" href="{{ url('admin','tickets') }}">{{ __('tickets.tickets') }}</a></li>
+                    @else
+                    <li class="nav-item"><a class="nav-link" href="{{ url('my_tickets') }}">{{ __('tickets.my_tickets') }}</a></li>
                     @endif
                 </ul>
                 @endauth

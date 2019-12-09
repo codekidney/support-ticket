@@ -23,4 +23,6 @@ return [
     'send'             => 'Wyślij',    
     'created'          => 'Utworzono',  
     'files'            => 'Pliki',  
+    'comment_submited' => 'Twój komentarz został przesłany',  
+    'ticket_submited'  => 'Dodano zgłoszenie ID #:TICKET_ID .',  
 ];

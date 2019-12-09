@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Ticket;
+use App\Services\FileService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mailers\AppMailer;
@@ -47,7 +48,7 @@ class TicketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, AppMailer $mailer)
+    public function store(Request $request, AppMailer $mailer, FileService $fileService)
     {
         $this->validate($request, [
             'title'    => 'required',
@@ -65,8 +66,12 @@ class TicketController extends Controller
             'message'     => $request->input('message'),
             'status'      => 'Open',
         ]);
-        
         $ticket->save();
+        
+        // Files
+        if(!empty($request->input('uploaded_files'))) {
+            $fileService->ajaxFileUploadSave( $request->input('uploaded_files'), 'ticket_id', $ticket->id );
+        }
         
         $mailer->sendTicketInformation(Auth::user(), $ticket);
         

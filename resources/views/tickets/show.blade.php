@@ -33,6 +33,11 @@
                 </div>
 
             </div>
+            <div class="card-footer">
+                @foreach ($ticket->files as $file)
+                <a class="btn btn-primary btn-sm" download href="{{ url('/files/', $file->file_name)}}"><i class="fas fa-download"></i> {{ $file->file_label }}</a>
+                @endforeach
+            </div>            
         </div>
 
         <a name="comments"></a>

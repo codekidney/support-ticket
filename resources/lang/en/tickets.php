@@ -23,4 +23,6 @@ return [
     'send'             => 'Send',   
     'created'          => 'Created',
     'files'            => 'Files',
+    'comment_submited' => 'Your comment has be submited',
+    'ticket_submited'  => 'A ticket with ID #:TICKET_ID has been added.', 
 ];

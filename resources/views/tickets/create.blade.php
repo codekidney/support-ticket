@@ -21,24 +21,18 @@
                 <form class="form-horizontal" role="form" method="POST">
                     {!! csrf_field() !!}
 
-                    <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                        <label for="title" class="col-md-4 control-label">{{ __('tickets.title') }}</label>
-
-                        <div class="col-md-6">
+                    <div class="form-row">
+                        <div class="form-group col{{ $errors->has('title') ? ' has-error' : '' }}">
+                            <label for="title" class="control-label">{{ __('tickets.title') }}</label>
                             <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}">
-
                             @if ($errors->has('title'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('title') }}</strong>
                             </span>
                             @endif
                         </div>
-                    </div>
-
-                    <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
-                        <label for="category" class="col-md-4 control-label">{{ __('tickets.category') }}</label>
-
-                        <div class="col-md-6">
+                        <div class="form-group col{{ $errors->has('category') ? ' has-error' : '' }}">
+                            <label for="category" class="control-label">{{ __('tickets.category') }}</label>
                             <select id="category" type="category" class="form-control" name="category">
                                 <option value="">{{ __('tickets.select_category') }}</option>
                                 @foreach ($categories as $category)
@@ -54,17 +48,24 @@
                         </div>
                     </div>
 
-                    <div class="form-group{{ $errors->has('priority') ? ' has-error' : '' }}">
-                        <label for="priority" class="col-md-4 control-label">{{ __('tickets.priority') }}</label>
-
-                        <div class="col-md-6">
+                    <div class="form-row">
+                        <div class="form-group col{{ $errors->has('message') ? ' has-error' : '' }}">
+                            <label for="message" class="control-label">{{ __('tickets.message') }}</label>
+                            <textarea rows="10" id="message" class="form-control" name="message"></textarea>
+                            @if ($errors->has('message'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('message') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                        <div class="form-group col{{ $errors->has('priority') ? ' has-error' : '' }}">
+                            <label for="priority" class="control-label">{{ __('tickets.priority') }}</label>
                             <select id="priority" type="" class="form-control" name="priority">
                                 <option value="">{{ __('tickets.select_priority') }}</option>
                                 <option value="low">{{ __('tickets.priority_low') }}</option>
                                 <option value="medium">{{ __('tickets.priority_medium') }}</option>
                                 <option value="high">{{ __('tickets.priority_high') }}</option>
                             </select>
-
                             @if ($errors->has('priority'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('priority') }}</strong>
@@ -73,28 +74,21 @@
                         </div>
                     </div>
 
-                    <div class="form-group{{ $errors->has('message') ? ' has-error' : '' }}">
-                        <label for="message" class="col-md-4 control-label">{{ __('tickets.message') }}</label>
+                    
+                    <!-- Upload File -->
+                    <input id="uploaded_files" type="hidden" class="form-control" name="uploaded_files" class="form-control">  
 
-                        <div class="col-md-6">
-                            <textarea rows="10" id="message" class="form-control" name="message"></textarea>
-
-                            @if ($errors->has('message'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('message') }}</strong>
-                            </span>
-                            @endif
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
+                    <div class="form-row">
+                        <div class="form-group col-12">
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-envelope-o"></i> {{ __('tickets.send') }}
                             </button>
                         </div>
                     </div>
                 </form>
+                
+                @include('partials.ajax_file_upload', ['_upl_elem' => '#uploaded_files'])
+                
             </div>
         </div>
     </div>

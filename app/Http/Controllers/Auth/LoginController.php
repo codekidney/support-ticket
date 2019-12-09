@@ -40,10 +40,10 @@ class LoginController extends Controller
     
     protected function authenticated(Request $request, $user) {
         
-        if( $user->is_admin !== 1 ) {
-            return redirect()->route('user_home');
-        } else {
+        if( $user->is_admin ) {
             return redirect()->route('admin_home');
+        } else {
+            return redirect()->route('user_home');
         }
 
         return redirect('/home');
