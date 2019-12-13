@@ -29,5 +29,5 @@ return [
     'ticket_closed'    => 'Zamknięto zgłoszenie.',  
     'you_can_view'     => 'Możesz zobaczyć bilet w dowolnym momencie kliknij link',  
     'ticket_opened'    => 'Dziękujęmy :Username za kontakt z naszym działem wsparcia. Zgłoszenie zostało przyjęte. Jeśli zostanie dodana odpowiedź poinformujemy Państwa wysyłąjąc e-maila.', 
-    'ticket_resolved'  => 'Zgłoszenie o ID :TICKET_ID zostało zamknięte i ustawiono status zakończono.', 
+    'ticket_resolved'  => 'Zgłoszenie o ID #:TICKET_ID zostało zamknięte i ustawiono status zakończono.', 
 ];

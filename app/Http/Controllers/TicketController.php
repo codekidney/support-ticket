@@ -75,7 +75,7 @@ class TicketController extends Controller
         
         $mailer->sendTicketInformation(Auth::user(), $ticket);
         
-        return redirect()->back()->with( 'status', __('tickets.ticket_submited', ['name' => $ticket->ticket_id]) );
+        return redirect()->back()->with( 'status', __('tickets.ticket_submited', ['ticket_id' => $ticket->ticket_id]) );
     }
 
     /**

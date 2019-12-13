@@ -29,5 +29,5 @@ return [
     'ticket_closed'    => 'The ticket has been closed',   
     'you_can_view'     => 'You can view the ticket at any time at', 
     'ticket_opened'    => 'Thank you :Username for contacting our support team. A support ticket has been opened for you. You will be notified when a response is made by email. The details of your ticket are shown below',
-    'ticket_resolved'  => 'Your support ticket with ID :TICKET_ID has been marked has resolved and closed.', 
+    'ticket_resolved'  => 'Your support ticket with ID #:TICKET_ID has been marked has resolved and closed.', 
 ];

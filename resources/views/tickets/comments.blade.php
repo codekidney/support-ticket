@@ -6,7 +6,7 @@
             <div class="card-header">
                 <a href="{{ url('tickets/'.$ticket->ticket_id.'/#comment-'.$comment->id ) }}">{{ $comment->user->name }}</a>
  
-                <span class="pull-right">{{ $comment->created_at->format('Y-m-d') }}</span>
+                <span class="pull-right">{{ $comment->created_at->format('Y-m-d H:m:s') }}</span>
             </div>
  
             <div class="card-body">
