@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\File as FileModel;
+use App\Models\File as FileModel;
 use Illuminate\Support\Facades\Storage;
 
 class FileService {
