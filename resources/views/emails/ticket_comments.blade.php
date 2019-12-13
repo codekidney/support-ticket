@@ -10,14 +10,14 @@
 </p>
  
 ---
-<p>Replied by: {{ $user->name }}</p>
+<p>{{ __('tickets.replied_by') }}: {{ $user->name }}</p>
  
-<p>Title: {{ $ticket->title }}</p>
-<p>Ticket ID: {{ $ticket->ticket_id }}</p>
-<p>Status: {{ $ticket->status }}</p>
+<p>{{ __('tickets.title') }}: {{ $ticket->title }}</p>
+<p>ID: {{ $ticket->ticket_id }}</p>
+<p>{{ __('tickets.status') }}: {{ $ticket->status }}</p>
  
 <p>
-    You can view the ticket at any time at {{ url('tickets/'. $ticket->ticket_id) }}
+    {{ __('tickets.you_can_view') }} {{ url('tickets/'. $ticket->ticket_id) }}
 </p>
  
 </body>

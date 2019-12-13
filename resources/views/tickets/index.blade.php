@@ -74,7 +74,6 @@
                 </table>
                 {!! $tickets->appends(\Request::except('page'))->render() !!}
 
-                {{ $tickets->render() }}
                 @endif
             </div>
         </div>

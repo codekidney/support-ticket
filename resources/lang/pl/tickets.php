@@ -14,6 +14,7 @@ return [
     'close_ticket'     => 'Zakończ',
     'reply'            => 'Odpowiedź',   
     'add_reply'        => 'Dodaj odpowiedź',    
+    'replied_by'       => 'Odpowiedziane przez',     
     'priority'         => 'Priorytet',   
     'priority_low'     => 'Podstawowy',    
     'priority_medium'  => 'Ważny',    
@@ -26,4 +27,7 @@ return [
     'comment_submited' => 'Twój komentarz został przesłany',  
     'ticket_submited'  => 'Dodano zgłoszenie ID #:TICKET_ID .',  
     'ticket_closed'    => 'Zamknięto zgłoszenie.',  
+    'you_can_view'     => 'Możesz zobaczyć bilet w dowolnym momencie kliknij link',  
+    'ticket_opened'    => 'Dziękujęmy :Username za kontakt z naszym działem wsparcia. Zgłoszenie zostało przyjęte. Jeśli zostanie dodana odpowiedź poinformujemy Państwa wysyłąjąc e-maila.', 
+    'ticket_resolved'  => 'Zgłoszenie o ID :TICKET_ID zostało zamknięte i ustawiono status zakończono.', 
 ];

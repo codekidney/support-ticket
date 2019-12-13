@@ -11,4 +11,10 @@ return [
     'forgot_password'  => 'Zapomniałeś hasła?',
     'reset_password'   => 'Utwórz ponownie hasło',
     'send_reset_link'  => 'Wyślij link do zmiany hasła',
+    'verify_email'     => 'Zweryfikuj swój adres email',
+    'verify_link_sent' => 'Nowy link weryfikacyjny został wysłany na Twój adres e-mail.',
+    'before_verify'    => 'Przed przejściem dalej, sprawdź nową wiadomość z linkiem weryfikacyjnym',
+    'if_didnt_receive' => 'Jeśli nie otrzymałeś wiadomości e-mail',
+    'request_link'     => 'kliknij tutaj, aby wyganerować ponownie',
+    'hello'            => 'Hello',
 ];

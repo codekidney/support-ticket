@@ -1,7 +1,8 @@
-<div class="comments">
+<div class="comments row">
     @foreach($ticket->comments as $comment)
+    <div class="@if($ticket->user->id === $comment->user->id){{"col-md-11"}}@else{{"col-md-11 offset-1"}}@endif">
         <a name="comment-{{ $comment->id }}"></a>
-        <div class="card border-@if($ticket->user->id === $comment->user_id){{"default"}}@else{{"primary"}}@endif mb-3">
+        <div class="card border-@if($ticket->user->id === $comment->user->id){{"primary"}}@else{{"default"}}@endif mb-3">
             <div class="card-header">
                 <a href="{{ url('tickets/'.$ticket->ticket_id.'/#comment-'.$comment->id ) }}">{{ $comment->user->name }}</a>
  
@@ -17,5 +18,6 @@
                 @endforeach
             </div>
         </div>
+    </div>
     @endforeach
 </div>

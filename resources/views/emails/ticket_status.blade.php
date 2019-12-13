@@ -6,10 +6,10 @@
 </head>
 <body>
     <p>
-        Hello {{ ucfirst($ticketOwner->name) }},
+        {{ __('users.hello') }} {{ ucfirst($ticketOwner->name) }},
     </p>
     <p>
-        Your support ticket with ID #{{ $ticket->ticket_id }} has been marked has resolved and closed.
+        {{ __('tickets.ticket_resolved', ['ticket_id' => $ticket->ticket_id]) }}
     </p>
 </body>
 </html>

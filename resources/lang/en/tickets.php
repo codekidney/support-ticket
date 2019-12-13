@@ -14,6 +14,7 @@ return [
     'close_ticket'     => 'Close',
     'reply'            => 'Reply',    
     'add_reply'        => 'Add reply',    
+    'replied_by'       => 'Replied by',    
     'priority'         => 'Priority',     
     'priority_low'     => 'Basic',    
     'priority_medium'  => 'Important',    
@@ -26,4 +27,7 @@ return [
     'comment_submited' => 'Your comment has be submited',
     'ticket_submited'  => 'A ticket with ID #:TICKET_ID has been added.',
     'ticket_closed'    => 'The ticket has been closed',   
+    'you_can_view'     => 'You can view the ticket at any time at', 
+    'ticket_opened'    => 'Thank you :Username for contacting our support team. A support ticket has been opened for you. You will be notified when a response is made by email. The details of your ticket are shown below',
+    'ticket_resolved'  => 'Your support ticket with ID :TICKET_ID has been marked has resolved and closed.', 
 ];
